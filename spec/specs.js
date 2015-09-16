@@ -119,10 +119,10 @@ describe('Game', function() {
     var newBoard = new Board();
     newBoard.fill();
     var newGame = new Game(player1, player2, newBoard);
-    var testSpace = newGame.board.spaces[0];
-    newGame.board.spaces[0].mark = "X";
+    var testSpace = newGame.board.spaces[2];
+    newGame.board.spaces[2].mark = "X";
     newGame.board.spaces[4].mark = "X";
-    newGame.board.spaces[8].mark = "X";
+    newGame.board.spaces[6].mark = "X";
     expect(newGame.diagWin(testSpace)).to.eql(true);
     });
 

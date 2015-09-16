@@ -65,7 +65,6 @@ Game.prototype.diagWin = function(currentSpace) {
   var filteredSpaces = allSpaces.filter(function(space) {
     return Math.abs(space.x - currentSpace.x) === Math.abs(space.y - currentSpace.y)
   });
-// debugger;
 
   filteredSpaces.forEach(function(filteredSpace) {
     if (filteredSpace.mark !== currentSpace.mark) {
@@ -75,3 +74,21 @@ Game.prototype.diagWin = function(currentSpace) {
 
     return win;
 }
+
+
+
+$(document).ready(function(){
+
+  $('#player-form').submit(function(event){
+
+    event.preventDefault();
+
+    var playerOne = $('#playerOne-name').val();
+    var playerTwo = $('#playerTwo-name').val();
+    var newBoard = new Board();
+
+    var game = Game(playerOne, playerTwo, newBoard);
+    $('#new-players').hide();
+  });
+
+});
