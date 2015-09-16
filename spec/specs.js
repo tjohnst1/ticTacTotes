@@ -20,8 +20,6 @@ describe('Space', function() {
 });
 
 describe('Board', function() {
-
-
   it('returns an empty array', function(){
     var newBoard = new Board();
     expect(newBoard.spaces).to.eql([])
@@ -50,7 +48,6 @@ describe('Board', function() {
 });
 
 describe('Player', function() {
-
   it('has a name', function() {
     var newPlayer = new Player('Travis', 'X');
     expect(newPlayer.name).to.eql('Travis');
@@ -76,5 +73,31 @@ describe('Game', function() {
     var newGame = new Game(player1, player2, null);
     expect(newGame.playerOne).to.eql(player1);
   });
+
+  it('returns true if a straight line win', function() {
+    var player1 = new Player();
+    var player2 = new Player();
+    var newBoard = new Board();
+    newBoard.fill();
+    var newGame = new Game(player1, player2, newBoard);
+    var testSpace = newGame.board.spaces[0];
+    newGame.board.spaces[0].mark = "X";
+    newGame.board.spaces[1].mark = "X";
+    newGame.board.spaces[2].mark = "X";
+    expect(newGame.lineWin(testSpace, 'X')).to.eql(true);
+    });
+
+  it('returns false if no a straight line win', function() {
+    var player1 = new Player();
+    var player2 = new Player();
+    var newBoard = new Board();
+    newBoard.fill();
+    var newGame = new Game(player1, player2, newBoard);
+    var testSpace = newGame.board.spaces[0];
+    newGame.board.spaces[0].mark = "X";
+    newGame.board.spaces[1].mark = "X";
+    newGame.board.spaces[2].mark = "O";
+    expect(newGame.lineWin(testSpace, 'x')).to.eql(false);
+    });
 
 });
