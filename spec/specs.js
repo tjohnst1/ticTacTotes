@@ -100,4 +100,30 @@ describe('Game', function() {
     expect(newGame.lineWin(testSpace, 'x')).to.eql(false);
     });
 
+  it('returns false if no a diag line win', function() {
+    var player1 = new Player();
+    var player2 = new Player();
+    var newBoard = new Board();
+    newBoard.fill();
+    var newGame = new Game(player1, player2, newBoard);
+    var testSpace = newGame.board.spaces[0];
+    newGame.board.spaces[0].mark = "X";
+    newGame.board.spaces[4].mark = "X";
+    newGame.board.spaces[8].mark = "O";
+    expect(newGame.diagWin(testSpace)).to.eql(false);
+    });
+
+  it('returns true if a diag line win', function() {
+    var player1 = new Player();
+    var player2 = new Player();
+    var newBoard = new Board();
+    newBoard.fill();
+    var newGame = new Game(player1, player2, newBoard);
+    var testSpace = newGame.board.spaces[0];
+    newGame.board.spaces[0].mark = "X";
+    newGame.board.spaces[4].mark = "X";
+    newGame.board.spaces[8].mark = "X";
+    expect(newGame.diagWin(testSpace)).to.eql(true);
+    });
+
 });

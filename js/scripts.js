@@ -58,3 +58,20 @@ Game.prototype.lineWin = function(currentSpace, axis) {
   });
     return win;
 }
+
+Game.prototype.diagWin = function(currentSpace) {
+  var allSpaces = this.board.spaces;
+  var win = true;
+  var filteredSpaces = allSpaces.filter(function(space) {
+    return Math.abs(space.x - currentSpace.x) === Math.abs(space.y - currentSpace.y)
+  });
+// debugger;
+
+  filteredSpaces.forEach(function(filteredSpace) {
+    if (filteredSpace.mark !== currentSpace.mark) {
+      win = false;
+    }
+  });
+
+    return win;
+}
