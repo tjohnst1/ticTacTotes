@@ -13,7 +13,7 @@
         <div class="form-group playerOne">
           <label for="playerOne-name"></label>
           <input type="text" id="playerOne-name" name="playerOne-name">
-          <select>
+          <select id="playerOne-mark">
             <option value="x">X</option>
           </select>
         </div>
@@ -21,45 +21,50 @@
         <div class="form-group playerTwo">
           <label for="playerTwo-name"></label>
           <input type="text" id="playerTwo-name" name="playerTwo-name">
-          <select>
+          <select id="playerTwo-mark">
             <option value="o">O</option>
           </select>
         </div>
         <button type="submit">Start</button>
       </form>
     </div>
+    <div class="game-space">
 
-    <h2 id="turn-counter">Current Player:<span class="turn"></span></h2>
+      <h2 id="turn-counter">Current Player: <span class="current-player"></span></h2>
 
-    <div id="game-board">
-      <div id="playerOne-info">
-        <h3>Player One</h3>
-        <h5 id="playerOne-mark"></h5>
+      <div id="game-board">
+        <div id="playerOne-info">
+          <h3>Player One</h3>
+          <h5 id="playerOne-mark"></h5>
+        </div>
+
+        <div id="playerTwo-info">
+          <h3>Player Two</h3>
+          <h5 id="playerTwo-mark"></h5>
+        </div>
+
+        <table>
+          <tr>
+            <td class="blank-space" id="2" class="02">Test</td>
+            <td class="blank-space" id="5" class="12">Test</td>
+            <td class="blank-space" id="8" class="22">Test</td>
+          </tr>
+          <tr>
+            <td class="blank-space" id="1" class="01">Test</td>
+            <td class="blank-space" id="4" class="11">Test</td>
+            <td class="blank-space" id="7" class="21">Test</td>
+          </tr>
+          <tr>
+            <td class="blank-space" id="0" class="00">Test</td>
+            <td class="blank-space" id="3" class="10">Test</td>
+            <td class="blank-space" id="6" class="20">Test</td>
+          </tr>
+        </table>
       </div>
-
-      <div id="playerTwo-info">
-        <h3>Player Two</h3>
-        <h5 id="playerTwo-mark"></h5>
-      </div>
-
-      <table>
-        <tr>
-          <td class="blank-space" id="02">Test</td>
-          <td class="blank-space" id="12">Test</td>
-          <td class="blank-space" id="22">Test</td>
-        </tr>
-        <tr>
-          <td class="blank-space" id="01">Test</td>
-          <td class="blank-space" id="11">Test</td>
-          <td class="blank-space" id="21">Test</td>
-        </tr>
-        <tr>
-          <td class="blank-space" id="00">Test</td>
-          <td class="blank-space" id="10">Test</td>
-          <td class="blank-space" id="20">Test</td>
-        </tr>
-      </table>
     </div>
-
+    <div class="game-over">
+      <h1 class="game-over-message"></h1>
+      <button onclick="playAgain()">Play Again</button>
+    </div>
   </body>
 </html>

@@ -7,7 +7,9 @@ var Space = function(x, y, mark){
 }
 
 Space.prototype.createMark = function(player) {
-  this.mark = player.mark;
+  if (this.mark === "") {
+    this.mark = player.mark;
+  }
 }
 
 var Board = function(){
@@ -38,7 +40,7 @@ var Game = function(playerOne, playerTwo, board) {
 
 };
 
-// Game.prototype.isOver? = function() {
+// Game.prototype.isOver = function() {
 //   this.board.spaces.forEach(function() {
 //
 //   });
@@ -77,26 +79,72 @@ Game.prototype.diagWin = function(currentSpace) {
     return win;
 }
 
+function playAgain() {
+    location.reload();
+}
+
 
 
 $(document).ready(function(){
+
+  var game,
+  win,
+  playerOne,
+  playerOneMark,
+  playerTwo,
+  playerTwoMark,
+  board,
+  currentSpace,
+  turn = 1;
 
   $('#player-form').submit(function(event){
 
     event.preventDefault();
 
-    var playerOne = $('#playerOne-name').val();
-    var playerTwo = $('#playerTwo-name').val();
-    var newBoard = new Board();
+    playerOneMark = $('#playerOne-mark').val();
+    playerTwoMark = $('#playerTwo-mark').val();
 
-    var game = Game(playerOne, playerTwo, newBoard);
+    playerOne = new Player ($('#playerOne-name').val(), playerOneMark);
+    playerTwo = new Player ($('#playerTwo-name').val(), playerTwoMark);
+    board = new Board();
+    board.fill();
+
+    game = new Game(playerOne, playerTwo, board);
     $('#new-players').hide();
-    $('#game-board').show();
+    $('.game-space').show();
+    $('span.current-player').text(playerOne.name);
   });
 
   $('td.blank-space').each(function() {
     $(this).click(function() {
-      $(this).css('background', 'green');
+      var currentPlayer = playerOne;
+      var otherPlayer = playerTwo;
+      if (turn % 2 === 0) {
+        otherPlayer = playerOne;
+        currentPlayer = playerTwo;
+      }
+      $('span.current-player').text(otherPlayer.name);
+
+      var index = parseInt($(this).attr('id'));
+      currentSpace = board.spaces[index];
+      currentSpace.createMark(currentPlayer);
+      $(this).text(board.spaces[index].mark);
+
+      win = game.lineWin(currentSpace, 'x') ||
+            game.lineWin(currentSpace, 'y') ||
+            game.diagWin(currentSpace);
+      if (win === true) {
+        // $('div.game-space').hide();
+        $('div.game-over').show();
+        $('h1.game-over-message').text(currentPlayer.name + " has defeated " +
+                                    otherPlayer.name);
+      }
+      turn += 1;
+      if (turn === 10) {
+        $('div.game-over').show();
+        $('h1.game-over-message').text("CatScratch #!%*");
+      }
+      $(this).unbind("click");
     });
   });
 
