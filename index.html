@@ -4,12 +4,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../js/scripts.js"></script>
+    <script src="./js/scripts.js"></script>
     <title>Tic-Tac-Toe</title>
   </head>
   <body>
-    <div class="player-form">
-      <form role="form">
+    <div id="new-players">
+      <form role="form" id="player-form">
         <div class="form-group playerOne">
           <label for="playerOne-name"></label>
           <input type="text" id="playerOne-name" name="playerOne-name">
@@ -31,6 +31,35 @@
 
     <h2 id="turn-counter">Current Player:<span class="turn"></span></h2>
 
+    <div id="game-board">
+      <div id="playerOne-info">
+        <h3>Player One</h3>
+        <h5 id="playerOne-mark"></h5>
+      </div>
+
+      <div id="playerTwo-info">
+        <h3>Player Two</h3>
+        <h5 id="playerTwo-mark"></h5>
+      </div>
+
+      <table>
+        <tr>
+          <td class="blank-space" id="02">Test</td>
+          <td class="blank-space" id="12">Test</td>
+          <td class="blank-space" id="22">Test</td>
+        </tr>
+        <tr>
+          <td class="blank-space" id="01">Test</td>
+          <td class="blank-space" id="11">Test</td>
+          <td class="blank-space" id="21">Test</td>
+        </tr>
+        <tr>
+          <td class="blank-space" id="00">Test</td>
+          <td class="blank-space" id="10">Test</td>
+          <td class="blank-space" id="20">Test</td>
+        </tr>
+      </table>
+    </div>
 
   </body>
 </html>

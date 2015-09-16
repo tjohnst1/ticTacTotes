@@ -1,3 +1,5 @@
+'use strict';
+
 var Space = function(x, y, mark){
   this.x = x;
   this.y = y;
@@ -89,6 +91,13 @@ $(document).ready(function(){
 
     var game = Game(playerOne, playerTwo, newBoard);
     $('#new-players').hide();
+    $('#game-board').show();
+  });
+
+  $('td.blank-space').each(function() {
+    $(this).click(function() {
+      $(this).css('background', 'green');
+    });
   });
 
 });
