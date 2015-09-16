@@ -110,6 +110,10 @@ $(document).ready(function(){
     board.fill();
 
     game = new Game(playerOne, playerTwo, board);
+
+    $('#playerOne-displayMark').text(playerOne.mark);
+    $('#playerTwo-displayMark').text(playerTwo.mark);
+
     $('#new-players').hide();
     $('.game-space').show();
     $('span.current-player').text(playerOne.name);
@@ -133,8 +137,9 @@ $(document).ready(function(){
       win = game.lineWin(currentSpace, 'x') ||
             game.lineWin(currentSpace, 'y') ||
             game.diagWin(currentSpace);
+            
       if (win === true) {
-        // $('div.game-space').hide();
+        $('div.game-space').hide();
         $('div.game-over').show();
         $('h1.game-over-message').text(currentPlayer.name + " has defeated " +
                                     otherPlayer.name);
