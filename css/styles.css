@@ -1,6 +1,25 @@
+.container {
+  text-align: center;
+}
+
+h1#title {
+  font-size: 3.2em;
+  margin: 10% 0 0 0;
+}
+
 .game-space{
   text-align: center;
   display: none;
+}
+
+
+div#new-players {
+  margin: 10% auto;
+  text-align: center;
+}
+
+div.form-group {
+  display: inline-block;
 }
 
 .game-over {

@@ -8,19 +8,22 @@
     <title>Tic-Tac-Toe</title>
   </head>
   <body>
+    <div class="container">
+      <h1 id="title">Tic Tac Totes</h1>
+    </div>
     <div id="new-players">
       <form role="form" id="player-form">
         <div class="form-group playerOne">
-          <label for="playerOne-name"></label>
-          <input type="text" id="playerOne-name" name="playerOne-name">
+          <label for="playerOne-name">Player One</label>
+          <input type="text" id="playerOne-name" name="playerOne-name" placeholder="Enter a name...">
           <select id="playerOne-mark">
             <option value="x">X</option>
           </select>
         </div>
 
         <div class="form-group playerTwo">
-          <label for="playerTwo-name"></label>
-          <input type="text" id="playerTwo-name" name="playerTwo-name">
+          <label for="playerTwo-name">Player Two</label>
+          <input type="text" id="playerTwo-name" name="playerTwo-name" placeholder="Enter a name...">
           <select id="playerTwo-mark">
             <option value="o">O</option>
           </select>
@@ -64,7 +67,7 @@
     </div>
     <div class="game-over">
       <h1 class="game-over-message"></h1>
-      <button onclick="playAgain()">Play Again</button>
+      <button class="btn btn-default" onclick="playAgain()">Play Again</button>
     </div>
   </body>
 </html>
