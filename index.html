@@ -13,37 +13,33 @@
     </div>
     <div id="new-players">
       <form role="form" id="player-form">
-        <div class="form-group playerOne">
-          <label for="playerOne-name">Player One</label>
-          <input type="text" id="playerOne-name" name="playerOne-name" placeholder="Enter a name...">
-          <select id="playerOne-mark">
-            <option value="x">X</option>
-          </select>
-        </div>
-
-        <div class="form-group playerTwo">
-          <label for="playerTwo-name">Player Two</label>
-          <input type="text" id="playerTwo-name" name="playerTwo-name" placeholder="Enter a name...">
-          <select id="playerTwo-mark">
-            <option value="o">O</option>
-          </select>
-        </div>
-        <button type="submit">Start</button>
+          <div class="form-group player playerOne">
+            <label class="player-name-label" for="playerOne-name">Player One</label>
+            <input type="text" class="player-name" id="playerOne-name" name="playerOne-name" placeholder="Enter a name...">
+            <select class="player-mark" id="playerOne-mark">
+              <option value="x">X</option>
+            </select>
+          </div>
+          <div class="form-group player playerTwo">
+            <label class="player-name-label" for="playerTwo-name">Player Two</label>
+            <input type="text" class="player-name" id="playerTwo-name" name="playerTwo-name" placeholder="Enter a name...">
+            <select class="player-mark" id="playerTwo-mark">
+              <option value="o">O</option>
+            </select>
+          </div>
+          <button type="submit" class="player-button btn btn-primary">Start</button>
       </form>
     </div>
     <div class="game-space">
-
-      <h2 id="turn-counter">Current Player: <span class="current-player"></span></h2>
-
       <div id="game-board">
         <div id="playerOne-info">
-          <h3>Player One</h3>
-          <h5 id="playerOne-displayMark"></h5>
+          <h3 class="player-name-game-label">Player One</h3>
+          <h5 id="playerOne-displayMark" class="player-display-mark"></h5>
         </div>
 
         <div id="playerTwo-info">
-          <h3>Player Two</h3>
-          <h5 id="playerTwo-displayMark"></h5>
+          <h3 class="player-name-game-label">Player Two</h3>
+          <h5 id="playerTwo-displayMark" class="player-display-mark"></h5>
         </div>
 
         <table>
@@ -64,6 +60,7 @@
           </tr>
         </table>
       </div>
+      <h2 id="turn-counter">Current Player: <span class="current-player"></span></h2>
     </div>
     <div class="game-over">
       <h1 class="game-over-message"></h1>

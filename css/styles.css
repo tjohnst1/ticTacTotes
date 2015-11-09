@@ -4,7 +4,7 @@
 
 h1#title {
   font-size: 3.2em;
-  margin: 10% 0 0 0;
+  margin: 5% 0 0 0;
 }
 
 .game-space{
@@ -14,8 +14,59 @@ h1#title {
 
 
 div#new-players {
-  margin: 10% auto;
+  margin: 2.5% auto;
   text-align: center;
+}
+
+.player{
+  text-align: center;
+  margin: 0 60px 10px;
+}
+
+.player-name-label{
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  color: #737373;
+  font-style: italic;
+}
+
+.player-name{
+  display: block;
+}
+
+.player-mark{
+  display: block;
+  margin: 10px auto 0;
+}
+
+.player-button{
+  display: block;
+  margin: 0 auto;
+}
+
+#turn-counter{
+  font-size: 16px;
+  font-weight: 300;
+  margin: 10px 0 0;
+  color: #737373;
+  padding: 10px 30px;
+  display: inline-block;
+  border: 1px solid #D8D8D8;
+}
+
+.player-name-game-label{
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  color: #737373;
+  font-style: italic;
+  margin: 10px 0 0;
+}
+
+.player-display-mark{
+  margin: 0;
+  color: #737373;
 }
 
 div.form-group {
@@ -33,6 +84,7 @@ td {
   width: 100px;
   height: 100px;
   text-align: center;
+  font-size: 64px;
 }
 
 #playerOne-info, #playerTwo-info{

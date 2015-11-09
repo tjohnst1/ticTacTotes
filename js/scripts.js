@@ -40,12 +40,6 @@ var Game = function(playerOne, playerTwo, board) {
 
 };
 
-// Game.prototype.isOver = function() {
-//   this.board.spaces.forEach(function() {
-//
-//   });
-// }
-
 Game.prototype.lineWin = function(currentSpace, axis) {
   var allSpaces = this.board.spaces;
   var win = true;
@@ -137,7 +131,7 @@ $(document).ready(function(){
       win = game.lineWin(currentSpace, 'x') ||
             game.lineWin(currentSpace, 'y') ||
             game.diagWin(currentSpace);
-            
+
       if (win === true) {
         $('div.game-space').hide();
         $('div.game-over').show();
